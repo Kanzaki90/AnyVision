@@ -1,0 +1,91 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Itunes API search"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "antonhanin7@gmail.com"
+host: "localhost:3000"
+basePath: "/"
+schemes:
+- "https"
+- "http"
+paths:
+  /search:
+    get:
+      summary: "Search or multuple search"
+      description: "Returns info about the artist"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "term"
+        in: "query"
+        description: "Name of the Artist"
+        required: true
+        type: "string"
+      - name: "entity"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "country"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "limit"
+        in: "query"
+        type: "integer"
+        format: "int32"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Page not found"
+  /getAlbums:
+    get:
+      summary: "Search one album or more"
+      description: "Receive information about the album"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "query"
+        description: "ID of the artist that returned from /search{term}"
+        required: true
+        type: "string"
+      - name: "entity"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "limit"
+        in: "query"
+        type: "integer"
+        format: "int32"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Page not found"        
+  /getArists:
+    get:
+      summary: "Search one artist or more"
+      description: "Receive information about the album"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "amgArtistId"
+        in: "query"
+        description: "Name of the Artist"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Page not found"       

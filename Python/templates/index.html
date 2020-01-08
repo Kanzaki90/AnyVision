@@ -1,0 +1,92 @@
+<head>
+
+    <title>Python - Danger Noodle</title>
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.5/css/mdb.min.css" rel="stylesheet">
+
+
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/start/jquery-ui.min.css" rel="stylesheet">
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet"
+        type="text/css" />
+
+
+</head>
+
+<body>
+
+    <form id="frm_1" action="." method="POST">
+        <input type="hidden" id="_search" name="data" value="" />
+    </form>
+
+    <form id="frm_2" action="." method="POST">
+        <input type="hidden" id="_album" name="data" value="" />
+    </form>
+
+    <form id="frm_3" action="." method="POST">
+        <input type="hidden" id="_artist" name="data" value="" />
+    </form>
+
+    <!--Search-->
+    <div class="form-group row">
+        <label for="search" class="col-sm-4 col-form-label pr-4" style="color: black">Search:</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="search" value="">
+        </div>
+    </div>
+    <!-- Album 1 or more-->
+    <div class="form-group row">
+        <label for="album" class="col-sm-4 col-form-label pr-4" style="color: black">Search Album:</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="album" value="">
+        </div>
+    </div>
+    <!--Artist 1 or more-->
+    <div class="form-group row">
+        <label for="artist" class="col-sm-4 col-form-label pr-4" style="color: black">Search
+            Artist:</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="artist" value="">
+        </div>
+    </div>
+    <div class="form-group row col-sm-4 offset-4">
+        <input type="button" class="form-control btn-primary" style="cursor:pointer" value="Submit seach"
+            onclick="test();">
+        <br><br>
+        <input type="button" class="form-control btn-primary" style="cursor:pointer" value="Submit album"
+            onclick="test2();">
+        <br><br>
+        <input type="button" class="form-control btn-primary" style="cursor:pointer" value="Submit artist"
+            onclick="test3();">
+        <br><br>
+    </div>
+
+    <script>
+        function test() {
+            var x = document.getElementById("frm_1");
+            document.getElementById("_search").value = "search?term=jack+johnson&entity=musicVideo&country=ca&limit=5";
+            x.submit();
+
+        }
+    </script>
+
+    <script>
+        function test2() {
+            var x = document.getElementById("frm_2");
+            document.getElementById("_album").value = "getAlbums?id=6505474&entity=album";
+            x.submit();
+        }
+    </script>
+
+    <script>
+            function test3() {
+            var x = document.getElementById("frm_3");
+            document.getElementById("_artist").value = "getArtists?amgArtistId=468749,5723,224667";
+            x.submit();
+        }
+    </script>
+
+</body>
